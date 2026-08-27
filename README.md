@@ -84,11 +84,11 @@ biblioteca-api/
 Requisição:
 ```json
 {
-  "titulo": "O Senhor dos Anéis",
-  "autor": "J.R.R. Tolkien",
-  "genero": "Fantasia",
-  "descricao": "Uma jornada épica para destruir um anel amaldiçoado.",
-  "anoPublicacao": 1954,
+  "titulo": "O Acordo (Nova Edição)",
+  "autor": "Ellen Kennedy",
+  "genero": "Romance",
+  "descricao": "Hannah Wells finalmente encontrou alguém que a interessasse. Mas, embora seja autoconfiante em vários outros aspectos da vida, carrega nas costas uma bagagem e tanto quando o assunto é sexo e sedução. Não vai ter jeito: ela vai ter que sair da zona de conforto… Mesmo que isso signifique dar aulas particulares para o infantil, irritante e convencido capitão do time de hóquei, em troca de um encontro de mentirinha.",
+  "anoPublicacao": 2026,
   "disponivel": true
 }
 ```
@@ -96,12 +96,11 @@ Requisição:
 Resposta (201 Created):
 ```json
 {
-  "id": 1,
-  "titulo": "O Senhor dos Anéis",
-  "autor": "J.R.R. Tolkien",
-  "genero": "Fantasia",
-  "descricao": "Uma jornada épica para destruir um anel amaldiçoado.",
-  "anoPublicacao": 1954,
+  "titulo": "O Acordo (Nova Edição)",
+  "autor": "Ellen Kennedy",
+  "genero": "Romance",
+  "descricao": "Hannah Wells finalmente encontrou alguém que a interessasse. Mas, embora seja autoconfiante em vários outros aspectos da vida, carrega nas costas uma bagagem e tanto quando o assunto é sexo e sedução. Não vai ter jeito: ela vai ter que sair da zona de conforto… Mesmo que isso signifique dar aulas particulares para o infantil, irritante e convencido capitão do time de hóquei, em troca de um encontro de mentirinha.",
+  "anoPublicacao": 2026,
   "disponivel": true
 }
 ```
@@ -111,12 +110,12 @@ Resposta (201 Created):
 Requisição:
 ```json
 {
-  "titulo": "O Senhor dos Anéis",
-  "autor": "J.R.R. Tolkien",
-  "genero": "Fantasia",
-  "descricao": "Uma jornada épica para destruir um anel amaldiçoado.",
-  "anoPublicacao": 1954,
-  "disponivel": false
+  "titulo": "O Acordo (Nova Edição)",
+  "autor": "Ellen Kennedy",
+  "genero": "Romance",
+  "descricao": "Hannah Wells finalmente encontrou alguém que a interessasse. Mas, embora seja autoconfiante em vários outros aspectos da vida, carrega nas costas uma bagagem e tanto quando o assunto é sexo e sedução. Não vai ter jeito: ela vai ter que sair da zona de conforto… Mesmo que isso signifique dar aulas particulares para o infantil, irritante e convencido capitão do time de hóquei, em troca de um encontro de mentirinha.",
+  "anoPublicacao": 2026,
+  "disponivel": true
 }
 ```
 
