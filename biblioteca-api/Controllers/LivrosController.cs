@@ -2,6 +2,7 @@ using biblioteca_api.Data;
 using biblioteca_api.DTOs;
 using biblioteca_api.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace biblioteca_api.Controllers;
 
@@ -16,16 +17,19 @@ public class LivrosController : ControllerBase
         _dbContext = dbContext;
     }
 
+    // GET /api/v1/livros
     [HttpGet]
-    public ActionResult<IEnumerable<Livro>> GetAll()
+    public async Task<ActionResult<IEnumerable<Livro>>> GetAll()
     {
-        return Ok(_dbContext.Livros);
+        var livros = await _dbContext.Livros.AsNoTracking().ToListAsync();
+        return Ok(livros);
     }
 
+    // GET /api/v1/livros/{id}
     [HttpGet("{id:int}")]
-    public ActionResult<Livro> GetById(int id)
+    public async Task<ActionResult<Livro>> GetById(int id)
     {
-        var livro = _dbContext.Livros.FirstOrDefault(l => l.Id == id);
+        var livro = await _dbContext.Livros.FindAsync(id);
 
         if (livro is null)
         {
@@ -35,12 +39,12 @@ public class LivrosController : ControllerBase
         return Ok(livro);
     }
 
+    // POST /api/v1/livros
     [HttpPost]
-    public ActionResult<Livro> Create([FromBody] LivroRequestDto dto)
+    public async Task<ActionResult<Livro>> Create([FromBody] LivroRequestDto dto)
     {
         var livro = new Livro
         {
-            Id = _dbContext.GetNextId(),
             Titulo = dto.Titulo,
             Autor = dto.Autor,
             Genero = dto.Genero,
@@ -50,14 +54,16 @@ public class LivrosController : ControllerBase
         };
 
         _dbContext.Livros.Add(livro);
+        await _dbContext.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetById), new { id = livro.Id }, livro);
     }
 
+    // PUT /api/v1/livros/{id}
     [HttpPut("{id:int}")]
-    public IActionResult Update(int id, [FromBody] LivroRequestDto dto)
+    public async Task<IActionResult> Update(int id, [FromBody] LivroRequestDto dto)
     {
-        var livro = _dbContext.Livros.FirstOrDefault(l => l.Id == id);
+        var livro = await _dbContext.Livros.FindAsync(id);
 
         if (livro is null)
         {
@@ -71,13 +77,16 @@ public class LivrosController : ControllerBase
         livro.AnoPublicacao = dto.AnoPublicacao;
         livro.Disponivel = dto.Disponivel;
 
+        await _dbContext.SaveChangesAsync();
+
         return NoContent();
     }
 
+    // DELETE /api/v1/livros/{id}
     [HttpDelete("{id:int}")]
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-        var livro = _dbContext.Livros.FirstOrDefault(l => l.Id == id);
+        var livro = await _dbContext.Livros.FindAsync(id);
 
         if (livro is null)
         {
@@ -85,6 +94,7 @@ public class LivrosController : ControllerBase
         }
 
         _dbContext.Livros.Remove(livro);
+        await _dbContext.SaveChangesAsync();
 
         return NoContent();
     }
