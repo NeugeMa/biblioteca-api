@@ -9,6 +9,7 @@ API REST desenvolvida em **ASP.NET Core (.NET 10)** para gerenciamento do acervo
 | Abner de Paiva Barbosa | RM558468 |
 | Beatriz Vieira de Novais | RM554746 |
 | Eduardo Dallabella Lima | RM556803 |
+| Fernando Luiz Silva Antonio | RM555201
 | Heloísa Real | RM554535 |
 | Mariana Neugebauer Dourado | RM550494 |
 
