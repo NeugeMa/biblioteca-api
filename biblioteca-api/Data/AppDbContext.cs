@@ -1,10 +1,13 @@
-﻿using biblioteca_api.Models;
+using biblioteca_api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace biblioteca_api.Data;
 
-public class AppDbContext {
-  public List<Livro> Livros { get; set; } = new();
-  private int _nextId = 1;
+public class AppDbContext : DbContext
+{
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+    }
 
-  public int GetNextId() => _nextId++;
+    public DbSet<Livro> Livros => Set<Livro>();
 }
