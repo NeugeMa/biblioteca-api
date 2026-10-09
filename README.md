@@ -14,6 +14,7 @@ Contexto: o projeto simula o sistema de uma biblioteca que precisa controlar seu
 | Fernando Luiz Silva Antonio | RM555201
 | Heloísa Real | RM554535 |
 | Mariana Neugebauer Dourado | RM550494 |
+| Victor Pacifico Dias | RM558017 |
 
 ## Tecnologias Utilizadas
 
